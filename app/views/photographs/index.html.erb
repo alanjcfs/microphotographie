@@ -1,0 +1,29 @@
+<h1>Listing photographs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photographs.each do |photograph| %>
+      <tr>
+        <td><%= photograph.user %></td>
+        <td><%= photograph.url %></td>
+        <td><%= link_to 'Show', photograph %></td>
+        <td><%= link_to 'Edit', edit_photograph_path(photograph) %></td>
+        <td><%= link_to 'Destroy', photograph, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Photograph', new_photograph_path %>
